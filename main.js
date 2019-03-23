@@ -21,10 +21,10 @@ function rebuild() {
             `<span class="listName" contenteditable="true" onkeyup="toDoList.listCollection[${i}].rename()">` +
             `${toDoList.listCollection[i].name}` +
             `</span>` +
-            `<button onclick="toDoList.listCollection[${i}].addTask()">` +
+            `<button class="defaultButton" onclick="toDoList.listCollection[${i}].addTask()">` +
             `Add Task` +
             `</button>` +
-            `<button onclick="toDoList.deleteList(${i})">` +
+            `<button class="defaultButton" onclick="toDoList.deleteList(${i})">` +
             `Delete List` +
             `</button>` +
             `</div>` +
@@ -37,7 +37,7 @@ function rebuild() {
                 `${toDoList.listCollection[i].taskList[j].name}` +
                 `</span>` +
                 `<input type="checkbox" onclick="toDoList.listCollection[${i}].taskList[${j}].toggleComplete()"/>` +
-                `<button onclick="toDoList.listCollection[${i}].deleteTask(${j})">` +
+                `<button class="defaultButton" onclick="toDoList.listCollection[${i}].deleteTask(${j})">` +
                 `Delete Task` +
                 `</button>` +
                 `</div>`

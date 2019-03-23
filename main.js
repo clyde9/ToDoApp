@@ -149,6 +149,7 @@ class Task {
         } else {
             $(`#${this.id} > span`).css('text-decoration', 'none');
         }
+        save();
     }
     
     checkComplete() {

@@ -17,8 +17,8 @@ function rebuild() {
     for (let i = 0; i < toDoList.listCollection.length; i++) {
         $(".boxOfLists").append(
             `<div class="listBox" id="${toDoList.listCollection[i].id}">` +
-            `<div class="listName">` +
-            `<span contenteditable="true" onkeyup="toDoList.listCollection[${i}].rename()">` +
+            `<div class="listHead">` +
+            `<span class="listName" contenteditable="true" onkeyup="toDoList.listCollection[${i}].rename()">` +
             `${toDoList.listCollection[i].name}` +
             `</span>` +
             `<button onclick="toDoList.listCollection[${i}].addTask()">` +
@@ -33,7 +33,7 @@ function rebuild() {
         for (let j = 0; j < toDoList.listCollection[i].taskList.length; j++) {
             $(`#${toDoList.listCollection[i].id}`).append(
                 `<div class="taskBox" id="${toDoList.listCollection[i].taskList[j].id}">` +
-                `<span contenteditable="true" onkeyup="toDoList.listCollection[${i}].taskList[${j}].rename()">` +
+                `<span class="taskName" contenteditable="true" onkeyup="toDoList.listCollection[${i}].taskList[${j}].rename()">` +
                 `${toDoList.listCollection[i].taskList[j].name}` +
                 `</span>` +
                 `<input type="checkbox" onclick="toDoList.listCollection[${i}].taskList[${j}].toggleComplete()"/>` +
@@ -55,7 +55,10 @@ class ListCollection {
     static constructFromData(data) {
         let c = new ListCollection();
         for (let i = 0; i < data.listCollection.length; i++) {
-            c.listCollection.push(TaskList.constructFromData(data.listCollection[i].name, data.listCollection[i].id, data.listCollection[i].taskList));
+            c.listCollection.push(TaskList.constructFromData(
+                data.listCollection[i].name,
+                data.listCollection[i].id,
+                data.listCollection[i].taskList));
         }
         return c;
     }
@@ -98,7 +101,10 @@ class TaskList {
         let x = new TaskList(id);
         x.name = name;
         for (let i = 0; i < taskList.length; i++) {
-            x.taskList.push(Task.constructFromData(taskList[i].name, taskList[i].id, taskList[i].complete));
+            x.taskList.push(Task.constructFromData(
+                taskList[i].name,
+                taskList[i].id,
+                taskList[i].complete));
         }
         return x;
     }

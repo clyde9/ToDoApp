@@ -1,15 +1,34 @@
 body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
 
+.myContainer{
+  margin: 20px;
 }
 
 .boxOfLists{
-  margin-left: 10px;
+  margin: 10px;
+  width: 80%;
+}
+
+.listName, .taskName{
+  padding: 5px 10px;
 }
 
 .listBox{
+  width: 80%;
   margin-left: 10px;
 }
 
+.listHead{
+  display: flex;
+  align-items: center;
+}
+
 .taskBox{
-  margin-left: 10px;
+  margin-left: 15px;
+
 }
